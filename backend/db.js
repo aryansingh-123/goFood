@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const mongoURI = 'mongodb+srv://ayran582002:Aryan@123@gofood.r9etesr.mongodb.net/?retryWrites=true&w=majority&appName=goFood'
+const mongoURI = 'mongodb+srv://ayran582002:Aryan123@gofood.r9etesr.mongodb.net/?retryWrites=true&w=majority&appName=goFood'
 const connectDB =async() =>{
     mongoose.set('strictQuery', true);
     mongoose.connect(mongoURI,{ useNewUrlParser: true },(err, result)=>{
@@ -7,6 +7,7 @@ const connectDB =async() =>{
         else{
         console.log("Connected");
     }
+    
     });
 }
 module.exports = connectDB;
