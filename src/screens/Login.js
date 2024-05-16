@@ -1,11 +1,12 @@
 import React,{useState} from 'react'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [credentials, setCredentials] = useState({  email: "", password: "" });
+  let navigate = useNavigate(); // UseNavigate ko isly use kr rhe hai taki jb login ho toh login k baad direct redirect homepage pr ho jaaey 
   const handleSubmit = async(e)=>{
       e.preventDefault();
-      const response = await fetch("http://localhost:5000/api/createuser",{
+      const response = await fetch("http://localhost:5000/api/loginuser",{
           method:'POST',
           headers:{
               'Content-Type':'application/json'
@@ -18,6 +19,9 @@ export default function Login() {
       if(!json.success){
           alert("Enter Valid Credentials")
       }
+      if(json.success){
+       navigate("/");
+    }
   }
   const onChange = (event) => {
       if (event.target) {
