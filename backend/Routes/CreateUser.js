@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../models/user");
+const User = require("../models/User");
 const { body, validationResult } = require("express-validator");
-
+ 
 const bcrypt = require("bcryptjs");
 
 router.post(
@@ -29,7 +29,7 @@ router.post(
         location: req.body.location,
       });
       res.json({ success: true });
-    } catch (error) {
+    } catch (error) { 
       console.log(error);
       res.json({ success: false });
     }
